@@ -21,11 +21,10 @@ segmentation_features = var[env]['segmentation_features']
 
 model = Model(env)
 
-price_optimisation(self,type_,filepath,features,price_column,volume_column,product_column,current_price,sales_volume,standard_cost,segmentation_features):
-
-happy path
+# happy path
 
 def test_price_optimisation_B2C():
+
 
     output = model.price_optimisation('B2C', filepath, features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
     output_json = json.loads(output)    
@@ -54,11 +53,11 @@ def test_price_optimisation_B2B():
 
 # sad path
 def test_break_filepath():
-
+    
     filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'    
 
     # file is not exist
-    output = model.price_optimisation('B2B',filepath, 'random.csv', features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
+    output = model.price_optimisation('B2B', 'random.csv', features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
     output_json = json.loads(output)    
 
     assert isinstance(output, str)
@@ -68,7 +67,7 @@ def test_break_filepath():
     assert output_json['data'] is None
 
     # wrong extension
-    output = model.price_optimisation('B2B',filepath, 'random.file', features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
+    output = model.price_optimisation('B2B','random.file', features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
     output_json = json.loads(output)    
 
     # print(output_json)
