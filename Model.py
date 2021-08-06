@@ -26,7 +26,7 @@ from sklearn.linear_model import LinearRegression
 
 class Model:
 
-	def __init__(self, env='local'):
+	def __init__(self, env='prod'):
 		
 
 		self.log = Log()		

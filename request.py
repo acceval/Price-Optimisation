@@ -29,7 +29,7 @@ if __name__ == '__main__':
 	method = 'POST'
 	headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
 
-	filepath = 'B2B_clean.csv'
+	filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'
 	features = ["Recency", "Revenue_L12", "Customer_Size", "l3y_volume", "standard_cost", "l12_sales_vol", "Current_Price"]
 	price_feature = 'Avg_Price_L3Y'
 	volume_feature = 'l3y_volume'
@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
 	print('===================================================================')
 
-	filepath = 'B2C_clean.csv'
+	filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2C_clean.csv'
 
 	function = 'price_optimisation' 
 	url_ = url+function 

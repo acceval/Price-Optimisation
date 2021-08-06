@@ -7,8 +7,6 @@ from config import var
 
 env = 'prod'
 
-
-
 # default vars
 filepath = var[env]['filepath']
 features = var[env]['features']
@@ -23,41 +21,44 @@ segmentation_features = var[env]['segmentation_features']
 
 model = Model(env)
 
-# price_optimisation(self,type_,filepath,features,price_column,volume_column,product_column,current_price,sales_volume,standard_cost,segmentation_features):
+price_optimisation(self,type_,filepath,features,price_column,volume_column,product_column,current_price,sales_volume,standard_cost,segmentation_features):
 
-# happy path
+happy path
 
-# def test_price_optimisation_B2C():
+def test_price_optimisation_B2C():
 
-#     output = model.price_optimisation('B2C', filepath, features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
-#     output_json = json.loads(output)    
+    output = model.price_optimisation('B2C', filepath, features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
+    output_json = json.loads(output)    
 
-#     assert isinstance(output, str)
-#     assert isinstance(output_json, dict)
+    assert isinstance(output, str)
+    assert isinstance(output_json, dict)
 
-#     assert output_json['status']==1
-#     assert output_json['error'] is None
-#     assert len(output_json['data'])>0
+    assert output_json['status']==1
+    assert output_json['error'] is None
+    assert len(output_json['data'])>0
 
-# def test_price_optimisation_B2B():
+def test_price_optimisation_B2B():
 
-#     output = model.price_optimisation('B2B', filepath, features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
-#     output_json = json.loads(output)    
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'    
 
-#     assert isinstance(output, str)
-#     assert isinstance(output_json, dict)
+    output = model.price_optimisation('B2B', filepath, features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
+    output_json = json.loads(output)    
 
-#     assert output_json['status']==1
-#     assert output_json['error'] is None
-#     assert len(output_json['data'])>0
+    assert isinstance(output, str)
+    assert isinstance(output_json, dict)
+
+    assert output_json['status']==1
+    assert output_json['error'] is None
+    assert len(output_json['data'])>0
     
-
 
 # sad path
 def test_break_filepath():
 
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'    
+
     # file is not exist
-    output = model.price_optimisation('B2B', 'random.csv', features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
+    output = model.price_optimisation('B2B',filepath, 'random.csv', features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
     output_json = json.loads(output)    
 
     assert isinstance(output, str)
@@ -67,7 +68,7 @@ def test_break_filepath():
     assert output_json['data'] is None
 
     # wrong extension
-    output = model.price_optimisation('B2B', 'random.file', features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
+    output = model.price_optimisation('B2B',filepath, 'random.file', features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
     output_json = json.loads(output)    
 
     # print(output_json)
@@ -80,6 +81,8 @@ def test_break_filepath():
 
 # sad path
 def test_break_features():
+
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'
 
     # features is a string
     output = model.price_optimisation('B2B', filepath, 'features', price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
@@ -103,6 +106,8 @@ def test_break_features():
 
 def test_break_price():
 
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'
+
     # price_feature is a list
     output = model.price_optimisation('B2B', filepath, features, ['price_feature'], volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
     output_json = json.loads(output)    
@@ -125,6 +130,8 @@ def test_break_price():
 
 def test_break_volume():
 
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'
+
     # price_feature is a list
     output = model.price_optimisation('B2B', filepath, features, price_feature, ['volume_feature'], product_feature, current_price, sales_volume, standard_cost,segmentation_features)
     output_json = json.loads(output)    
@@ -146,6 +153,8 @@ def test_break_volume():
     assert output_json['data'] is None
 
 def test_break_product():
+
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'
 
     # product is a list
     output = model.price_optimisation('B2B', filepath, features, price_feature, volume_feature, ['product_feature'], current_price, sales_volume, standard_cost,segmentation_features)
@@ -170,6 +179,8 @@ def test_break_product():
 
 def test_break_current_price():
 
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'
+
     # current_price is a list
     output = model.price_optimisation('B2B', filepath, features, price_feature, volume_feature, product_feature, ['current_price'], sales_volume, standard_cost,segmentation_features)
     output_json = json.loads(output)    
@@ -192,6 +203,8 @@ def test_break_current_price():
 
 
 def test_break_sales_volume():
+
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'
 
     # sales_volume is a list
     output = model.price_optimisation('B2B', filepath, features, price_feature, volume_feature, product_feature, current_price, ['sales_volume'], standard_cost,segmentation_features)
@@ -216,6 +229,8 @@ def test_break_sales_volume():
 
 def test_break_standard_cost():
 
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'
+
     # sales_volume is a list
     output = model.price_optimisation('B2B', filepath, features, price_feature, volume_feature, product_feature, current_price, sales_volume, ['standard_cost'], segmentation_features)
     output_json = json.loads(output)    
@@ -237,6 +252,8 @@ def test_break_standard_cost():
     assert output_json['data'] is None
 
 def test_break_segmentation_features():
+
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'
 
     # segmentation_features is a string
     output = model.price_optimisation('B2B', filepath, features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost, 'segmentation_features')

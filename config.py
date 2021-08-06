@@ -47,7 +47,7 @@ var['local']['segmentation_features'] = ['Recency','Revenue_L12','Customer_Size'
 
 
 var['prod'] = {}
-var['prod']['filepath'] = 'B2C_clean.csv'
+var['prod']['filepath'] = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2C_clean.csv'
 var['prod']['features'] = ['Recency','Revenue_L12','Customer_Size','l3y_volume','standard_cost','l12_sales_vol','Current_Price']
 var['prod']['price_feature'] = 'Avg_Price_L3Y'
 var['prod']['volume_feature'] = 'l3y_volume'

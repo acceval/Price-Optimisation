@@ -7,10 +7,10 @@ from config import var
 from Model import Model 
 from app import app
 
-env = 'local'
+env = 'prod'
 
 # default vars
-filepath = 'B2B_clean.csv'
+filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2B_clean.csv'
 features = ["Recency", "Revenue_L12", "Customer_Size", "l3y_volume", "standard_cost", "l12_sales_vol", "Current_Price"]
 price_feature = 'Avg_Price_L3Y'
 volume_feature = 'l3y_volume'
@@ -40,7 +40,7 @@ def test_price_optimisation_B2B_app(app, client):
 
 def test_price_optimisation_B2C_app(app, client):
     
-    filepath = 'B2C_clean.csv'
+    filepath = 'https://raw.githubusercontent.com/acceval/Price-Optimisation/main/B2C_clean.csv'
 
     function = 'price_optimisation' 
     url_ = url+function 

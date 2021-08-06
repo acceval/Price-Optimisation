@@ -13,7 +13,7 @@ parser = reqparse.RequestParser()
 parser.add_argument('list', type=list)
 
 
-model = Model('local')
+model = Model('prod')
 
 @app.route('/')
 def hello():
@@ -87,7 +87,7 @@ def price_optimisation():
 
 	if type_!='' and filepath!='' and features!='' and price_feature!='' and volume_feature!='' and product_feature!='' and price_feature!='' and current_price!='' and standard_cost!='' and segmentation_features!='':
 
-		output = model.price_optimisation('B2C', filepath, features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
+		output = model.price_optimisation(type_, filepath, features, price_feature, volume_feature, product_feature, current_price, sales_volume, standard_cost,segmentation_features)
 		return jsonify(output)
 
 	else:
