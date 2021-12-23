@@ -8,11 +8,32 @@ import sys
 import inspect
 import config
 
-def get_func_args(f):
-    if hasattr(f, 'args'):
-        return f.args
-    else:
-        return list(inspect.signature(f).parameters)
+
+
+def get_uuid():
+    return md5(str(localtime()).encode('utf-8')).hexdigest()
+
+
+def find(key, dictionary):
+
+    for k, v in dictionary.items():
+        if k == key:
+            yield v
+        elif isinstance(v, dict):
+            for result in find(key, v):
+                yield result
+        elif isinstance(v, list):
+            for d in v:
+                for result in find(key, d):
+                    yield result
+
+
+def depth(x):
+    if type(x) is dict and x:
+        return 1 + max(depth(x[a]) for a in x)
+    if type(x) is list and x:
+        return 1 + max(depth(a) for a in x)
+    return 0
 
 def get_datetime():
     return datetime.now()

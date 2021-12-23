@@ -9,7 +9,7 @@ today = utils.get_today_date()
 
 # check if log folder exists, if not, then create it
 if not os.path.exists(config.PATH_TO_FOLDER+"log"):
-	os.makedirs(config.PATH_TO_FOLDER+"log")
+    os.makedirs(config.PATH_TO_FOLDER+"log")
 
 
 logger = logging.getLogger(__name__)
@@ -20,10 +20,10 @@ logging.basicConfig(filename=config.PATH_TO_FOLDER+"log/loging_"+config.VERSION+
 
 
 class Log():
-    def __init__(self):        
+    def __init__(self,uuid=None):        
 
-    	pass
+        self.uuid = uuid
 
     def print_(self, message):
-        logging.info("{} ".format(message))
+        logging.info("{} : {} ".format(self.uuid,message))
     
