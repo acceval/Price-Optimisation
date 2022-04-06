@@ -22,7 +22,7 @@ jobs:
         pip install --upgrade pip && pip install -r requirements.txt
     - name: Test with pytest          
       run: |
-        pip install pytest
+        pip install pytest -rP
         pytest    
 #     - name: Build, Push and Release a Docker container to Heroku. # Your custom step name
 #       uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
