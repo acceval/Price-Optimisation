@@ -1,9 +1,7 @@
 import os
 
 ## SERVER
-# PATH_TO_FOLDER = '/home/cst/Jixie/source code/unit_forecasting/'
 PATH_TO_FOLDER = str(os.getcwd())+'/'
-
 
 VERSION = '0.1.0'
 
