@@ -24,6 +24,7 @@ jobs:
       run: |
         pip install pytest 
         pytest test_model.py -rP
+        pytest test_app.py -rP
 #     - name: Build, Push and Release a Docker container to Heroku. # Your custom step name
 #       uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
 #       with:
