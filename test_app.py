@@ -20,7 +20,7 @@ sales_volume = 'l12_sales_vol'
 standard_cost = 'standard_cost'
 segmentation_features = ["Recency", "Revenue_L12", "Customer_Size"]
 
-model = Model(env)
+model = Model(env)  
 # local url
 url = config.LOCAL_URL
 # url = config.HEROKU_URL
