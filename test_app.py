@@ -37,7 +37,7 @@ def test_price_optimisation_B2B_app(app, client):
     print(url_)
     print('=====================================')
     send_request = client.post(url_, data=data, follow_redirects=True)    
-    print(send_request)
+    print(send_request.json())            
 #     assert send_request.status_code == 200
 
 
