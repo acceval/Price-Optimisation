@@ -24,10 +24,10 @@ jobs:
       run: |
         pip install pytest
         pytest    
-    - name: Build, Push and Release a Docker container to Heroku. # Your custom step name
-      uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-      with:
-         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-         heroku_app_name: "smarttradzt-price-optimisation" #Must be unique in Heroku
-         heroku_email: ${{secrets.SMART_TRADZT_EMAIL}}
-         usedocker: true
+#     - name: Build, Push and Release a Docker container to Heroku. # Your custom step name
+#       uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+#       with:
+#          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+#          heroku_app_name: "smarttradzt-price-optimisation" #Must be unique in Heroku
+#          heroku_email: ${{secrets.SMART_TRADZT_EMAIL}}
+#          usedocker: true
