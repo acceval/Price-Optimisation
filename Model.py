@@ -262,11 +262,11 @@ class Model:
 
 		if with_constraint:
 			
-			sol = minimize(objective,x0,constraints=cons,options={'disp':True})        
+			sol = minimize(objective,x0,constraints=cons,options={'disp':False})        
 		
 		else:
 			
-			sol = minimize(objective,x0,options={'disp':True})
+			sol = minimize(objective,x0,options={'disp':False})
 
 		xOpt = sol.x
 			
