@@ -47,8 +47,9 @@ curl -X POST -H 'Accept: application/json' -H 'Accept-Encoding: gzip, deflate' -
 
 ### Sample Output
 
-Full sample output can be found at this [file] (https://raw.githubusercontent.com/acceval/Price-Optimisation/main/output.json )
+Full sample output can be found at this [link](https://raw.githubusercontent.com/acceval/Price-Optimisation/main/output.json )
 
 # Notes 
 
 We are still considering, instead return all the records, should this model only return the parameters needed to perform the calculations by front end so the performance can be faster.
+
