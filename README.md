@@ -52,3 +52,4 @@ Full sample output can be found at this [link](https://raw.githubusercontent.com
 # Notes 
 
 We are still considering, instead return all the records, should this model only return the parameters needed to perform the calculations by front end so the performance can be faster.
+
