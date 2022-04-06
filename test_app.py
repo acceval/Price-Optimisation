@@ -32,7 +32,10 @@ def test_price_optimisation_B2B_app(app, client):
     url_ = url+function 
     data = '{"type":"B2B", "filepath" :"'+filepath+'", "features":'+str(features)+', "price_feature":"'+price_feature+'", "volume_feature":"'+volume_feature+'", "product_feature":"'+product_feature+'", "current_price":"'+current_price+'", "sales_volume":"'+sales_volume+'", "standard_cost":"'+standard_cost+'", "segmentation_features":'+str(segmentation_features)+' }'
     data = data.replace("'",'"')
-    
+    print('=====================================')
+    print(data)
+    print(url_)
+    print('=====================================')
     send_request = client.post(url_, data=data, follow_redirects=True)    
     print(send_request)
 #     assert send_request.status_code == 200
